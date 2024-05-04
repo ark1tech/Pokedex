@@ -3,13 +3,15 @@
 @import "nav.css";
 @import "main.css";
 @import "search.css";
+@import "cards.css";
+@import "sort.css";
 
 :root {
   --foreground-rgb: #0f0f0f;
   --background-rgb: #000000;
   --main-color: #ef542b;
   --content-width: 850px;
-  --body-text: rgb(180, 180, 180);
+  --body-text: rgb(126, 126, 126);
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -30,7 +32,7 @@
   background: rgba(39, 39, 39, 0.5);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(245, 63, 31, 0.5);
+  background: rgba(255, 50, 14, 0.5);
 }
 ::-webkit-scrollbar-corner {
   background: rgba(0, 0, 0, 0);
@@ -48,7 +50,7 @@ body {
   background: var(--background-rgb);
   background-image: radial-gradient(
     circle farthest-corner at top,
-    #2a2828 0px,
+    #232323 0px,
     var(--background-rgb) 1000px
   );
   background-repeat: no-repeat;
@@ -86,9 +88,19 @@ body {
     max-width: 640px;
   }
   a,
+  ::placeholder,
+  input,
   li,
   p {
     font-size: 1rem;
+  }
+  .card-bg {
+    min-width: 47%;
+  }
+  .cards-img-container > img {
+    width: 75%;
+    top: 0rem;
+    right: -9rem;
   }
 }
 
@@ -101,9 +113,19 @@ body {
     width: 100%;
   }
   a,
+  ::placeholder,
+  input,
   li,
   p {
     font-size: 0.9rem;
+  }
+  .card-bg {
+    min-width: 100%;
+  }
+  .cards-img-container > img {
+    width: 55%;
+    top: 1rem;
+    right: -15rem;
   }
 }
 
@@ -116,9 +138,16 @@ body {
     width: 100%;
   }
   a,
+  ::placeholder,
+  input,
   li,
   p {
     font-size: 0.9rem;
+  }
+  .cards-img-container > img {
+    width: 70%;
+    top: 1rem;
+    right: -8rem;
   }
 }
 

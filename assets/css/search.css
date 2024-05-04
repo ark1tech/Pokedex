@@ -7,10 +7,8 @@ input {
   font-weight: 300;
   background-color: transparent;
   border: none;
-}
-
-input:focus > .search-container {
-  border: 1px solid rgb(119, 118, 118);
+  padding: 0.8rem 1rem 0.8rem 0rem;
+  font-size: 1rem;
 }
 
 ::placeholder {
@@ -19,27 +17,61 @@ input:focus > .search-container {
   text-wrap: pretty;
   font-kerning: auto;
   font-weight: 300;
+  font-size: 1rem;
 }
 
 .search-container {
   display: flex;
-  padding: 1rem 2rem 1rem 2rem;
-  border: 1px solid rgb(74, 74, 74);
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
+  flex-direction: row;
+  gap: 1rem;
+  position: relative;
 
-  transition: border 200ms linear;
-  -webkit-transition: border 200ms linear;
-  -moz-transition: border 200ms linear;
-  -ms-transition: border 200ms linear;
-  -o-transition: border 200ms linear;
+  padding: 0rem 0rem 0rem 1rem;
+
+  border: 0.5px solid rgb(74, 74, 74);
+  border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+
+  transition: border 100ms linear;
+  -webkit-transition: border 100ms linear;
+  -moz-transition: border 100ms linear;
+  -ms-transition: border 100ms linear;
+  -o-transition: border 100ms linear;
+}
+
+.search-container:focus-within {
+  border: 0.5px solid rgb(119, 118, 118);
 }
 
 .search-container > img {
   height: auto;
-  width: 18px;
-  color: rgb(105, 101, 101);
+  width: 1rem;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9;
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important;
+  color: #ffffff;
 }
