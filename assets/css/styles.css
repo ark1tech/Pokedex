@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Reddit+Sans:ital,wght@0,200..900;1,200..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@import "nav.css";
+@import "main.css";
+
+:root {
+  --foreground-rgb: #0f0f0f;
+  --background-rgb: #000000;
+  --main-color: #ef542b;
+  --content-width: 850px;
+  --body-text: rgb(180, 180, 180);
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: #0f0f0f;
+    --background-rgb: #1e1e1e;
+  }
+} */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 3px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(19, 19, 19);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(39, 39, 39, 0.5);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 63, 31, 0.5);
+}
+::-webkit-scrollbar-corner {
+  background: rgba(0, 0, 0, 0);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100svh;
+  color: rgb(var(--foreground-rgb));
+  background: var(--background-rgb);
+  background-image: radial-gradient(
+    circle farthest-corner at top,
+    #2a2828 0px,
+    var(--background-rgb) 1000px
+  );
+  background-repeat: no-repeat;
+  background-blend-mode: normal;
+  background-size: 100%;
+}
+
+/* 2xl */
+@media (max-width: 1536px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* xl */
+@media (max-width: 1280px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+/* lg */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+/* md */
+@media (max-width: 768px) {
+  .container,
+  .foot,
+  nav,
+  main {
+    max-width: 640px;
+  }
+  a,
+  li,
+  p {
+    font-size: 1rem;
+  }
+}
+
+/* sm */
+@media (max-width: 640px) {
+  .container,
+  .foot,
+  nav,
+  main {
+    width: 100%;
+  }
+  a,
+  li,
+  p {
+    font-size: 0.9rem;
+  }
+}
+
+/* xs */
+@media (max-width: 475px) {
+  .container,
+  .foot,
+  nav,
+  main {
+    width: 100%;
+  }
+  a,
+  li,
+  p {
+    font-size: 0.9rem;
+  }
+}
+
+h5 {
+  font-family: "Reddit Sans", Arial, Helvetica, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 200;
+  color: rgb(240, 240, 240);
+  /* color: var(--main-color); */
+}
+
+h4 {
+  font-family: "Reddit Sans", Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: rgb(240, 240, 240);
+  /* color: var(--main-color); */
+}
+
+h1 {
+  font-family: "Reddit Sans", Arial, Helvetica, sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 2.2rem;
+  font-weight: 500;
+}
+
+p {
+  font-family: "Albert Sans", Arial, Helvetica, sans-serif;
+  color: var(--body-text);
+  text-wrap: pretty;
+  font-kerning: auto;
+  font-weight: 300;
+  line-height: 120%;
+}
+
+a,
+li {
+  font-family: "Albert Sans", Arial, Helvetica, sans-serif;
+  color: rgb(240, 240, 240);
+  text-wrap: pretty;
+  font-kerning: auto;
+  font-weight: 300;
+}
+
+/*  GLOBAL CLASSES */
+
+.container {
+  max-width: 1536px;
+  margin-left: auto;
+  margin-right: auto;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.occupy {
+  width: 100svw;
+}

@@ -1,0 +1,11 @@
+footer {
+  max-width: 1536px;
+}
+
+.foot {
+  max-width: var(--content-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 2.5rem 0 2.5rem;
+  width: 100svw;
+}
