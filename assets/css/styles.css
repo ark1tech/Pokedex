@@ -99,8 +99,8 @@ body {
   }
   .cards-img-container > img {
     width: 75%;
-    top: 0rem;
-    right: -9rem;
+    top: 2rem;
+    right: -8rem;
   }
 }
 
@@ -123,9 +123,9 @@ body {
     min-width: 100%;
   }
   .cards-img-container > img {
-    width: 55%;
-    top: 1rem;
-    right: -15rem;
+    width: 48%;
+    top: 3rem;
+    right: -20rem;
   }
 }
 
@@ -145,9 +145,9 @@ body {
     font-size: 0.9rem;
   }
   .cards-img-container > img {
-    width: 70%;
-    top: 1rem;
-    right: -8rem;
+    width: 60%;
+    top: 3rem;
+    right: -12rem;
   }
 }
 
