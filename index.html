@@ -8,9 +8,6 @@
     <meta name="description" content="">
 
     <link rel="stylesheet" href="./assets/css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <meta property="og:title" content="">
     <meta property="og:type" content="">
@@ -31,7 +28,7 @@
         <nav>
             <div class="nav-container">
                 <div class="nav-logo">
-                    <img src="pokeball.svg"/>
+                    <img src="./assets/icons/pokeball.svg" />
                     <h4>
                         POKÉDEX
                     </h4>
@@ -46,12 +43,22 @@
                 </div>
             </div>
         </nav>
+
         <main>
+            <h1 class="title occupy">
+                Who's that Pokémon?
+            </h1>
+            <div class="occupy search-container">
+                <img src="./assets/icons/search.svg" />
+                <input id="searchBar" class="occupy" type="text" autocomplete="off" autocorrect="off" spellcheck="false"
+                    placeholder="Search">
+            </div>
         </main>
     </div>
 
+    <!-- <class="flex h-10 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50" placeholder="Type a command or search" aria-activedescendant="dnvq5i8vB_"> -->
 
-    <script src="./assets/js/app.js"></script>
+    <script src="./assets/js/index.js"></script>
 </body>
 
 </html>
