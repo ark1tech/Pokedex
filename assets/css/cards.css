@@ -120,22 +120,3 @@
   justify-content: flex-start;
   gap: 0.5rem;
 }
-
-.cards-content > p {
-  border-radius: 5px;
-  font-size: 0.8rem;
-  color: white;
-  padding: 0.05rem 0.5rem 0.05rem 0.5rem;
-}
-
-.cards-content :first-child {
-  width: fit-content;
-  text-align: center;
-  background-color: rgb(60, 100, 200);
-}
-
-.cards-content :last-child {
-  width: fit-content;
-  text-align: center;
-  background-color: rgb(2, 183, 238);
-}

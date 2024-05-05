@@ -1,0 +1,184 @@
+:root{
+  --fire: rgb(185, 114, 35);
+  --fairy: rgb(188, 77, 158);
+  --normal: rgb(136, 137, 123);
+  --psychic: rgb(177, 51, 127);
+  --bug: rgb(149, 160, 27);
+  --ground: rgb(180, 154, 70);
+  --water: rgb(77, 117, 169);
+  --fight: rgb(131, 68, 49);
+  --steel: rgb(134, 138, 150);
+  --poison: rgb(162, 113, 177);
+  --grass: rgb(105, 158, 61);
+  --dragon: rgb(51, 76, 111);
+  --ice: rgb(113, 184, 194);
+  --ghost: rgb(92, 90, 163);
+  --rock: rgb(144, 125, 68);
+  --electric: rgb(194, 151, 47);
+  --flying: rgb(117, 134, 186);
+  --dark: rgb(88, 68, 57);
+  --stellar: rgb(51, 65, 154);
+  --unknown: rgb(80, 122, 109);
+}
+
+.fire {
+  border-radius: 5px;
+  font-size: 0.8rem;
+  color: white;
+  padding: 0.05rem 0.5rem 0.05rem 0.5rem;
+  background-color: var(--fire);
+}
+
+.fairy {
+  border-radius: 5px;
+  font-size: 0.8rem;
+  color: white;
+  padding: 0.05rem 0.5rem 0.05rem 0.5rem;
+  background-color: var(--fairy);
+}
+
+.normal {
+  border-radius: 5px;
+  font-size: 0.8rem;
+  color: white;
+  padding: 0.05rem 0.5rem 0.05rem 0.5rem;
+  background-color: var(--normal);
+}
+
+.psychic {
+  border-radius: 5px;
+  font-size: 0.8rem;
+  color: white;
+  padding: 0.05rem 0.5rem 0.05rem 0.5rem;
+  background-color: var(--psychic);
+}
+
+.bug {
+  border-radius: 5px;
+  font-size: 0.8rem;
+  color: white;
+  padding: 0.05rem 0.5rem 0.05rem 0.5rem;
+  background-color: var(--bug);
+}
+
+.ground {
+  border-radius: 5px;
+  font-size: 0.8rem;
+  color: white;
+  padding: 0.05rem 0.5rem 0.05rem 0.5rem;
+  background-color: var(--ground);
+}
+
+.water {
+  border-radius: 5px;
+  font-size: 0.8rem;
+  color: white;
+  padding: 0.05rem 0.5rem 0.05rem 0.5rem;
+  background-color: var(--water);
+}
+
+.fight {
+  border-radius: 5px;
+  font-size: 0.8rem;
+  color: white;
+  padding: 0.05rem 0.5rem 0.05rem 0.5rem;
+  background-color: var(--fight);
+}
+
+.steel {
+  border-radius: 5px;
+  font-size: 0.8rem;
+  color: white;
+  padding: 0.05rem 0.5rem 0.05rem 0.5rem;
+  background-color: var(--steel);
+}
+
+.poison {
+  border-radius: 5px;
+  font-size: 0.8rem;
+  color: white;
+  padding: 0.05rem 0.5rem 0.05rem 0.5rem;
+  background-color: var(--poison);
+}
+
+.grass {
+  border-radius: 5px;
+  font-size: 0.8rem;
+  color: white;
+  padding: 0.05rem 0.5rem 0.05rem 0.5rem;
+  background-color: var(--grass);
+}
+
+.dragon {
+  border-radius: 5px;
+  font-size: 0.8rem;
+  color: white;
+  padding: 0.05rem 0.5rem 0.05rem 0.5rem;
+  background-color: var(--dragon);
+}
+
+.ice {
+  border-radius: 5px;
+  font-size: 0.8rem;
+  color: white;
+  padding: 0.05rem 0.5rem 0.05rem 0.5rem;
+  background-color: var(--ice);
+}
+
+.ghost {
+  border-radius: 5px;
+  font-size: 0.8rem;
+  color: white;
+  padding: 0.05rem 0.5rem 0.05rem 0.5rem;
+  background-color: var(--ghost);
+}
+
+.rock {
+  border-radius: 5px;
+  font-size: 0.8rem;
+  color: white;
+  padding: 0.05rem 0.5rem 0.05rem 0.5rem;
+  background-color: var(--rock);
+}
+
+.electric {
+  border-radius: 5px;
+  font-size: 0.8rem;
+  color: white;
+  padding: 0.05rem 0.5rem 0.05rem 0.5rem;
+  background-color: var(--electric);
+}
+
+.flying {
+  border-radius: 5px;
+  font-size: 0.8rem;
+  color: white;
+  padding: 0.05rem 0.5rem 0.05rem 0.5rem;
+  background-color: var(--flying);
+}
+
+.dark {
+  border-radius: 5px;
+  font-size: 0.8rem;
+  color: white;
+  padding: 0.05rem 0.5rem 0.05rem 0.5rem;
+  background-color: var(--dark);
+}
+
+.stellar {
+  border-radius: 5px;
+  font-size: 0.8rem;
+  color: white;
+  padding: 0.05rem 0.5rem 0.05rem 0.5rem;
+  background-color: var(--stellar);
+}
+
+.unknown {
+  border-radius: 5px;
+  font-size: 0.8rem;
+  color: white;
+  padding: 0.05rem 0.5rem 0.05rem 0.5rem;
+  background-color: var(--unknown);
+}
+
+

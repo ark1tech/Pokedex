@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 .go-prev,
@@ -27,9 +28,15 @@
   flex-direction: column;
 }
 
-.go-pokemon > p {
+.go-pokemon > .pokemon-id {
   font-family: "JetBrains Mono", "Courier New", Courier, monospace;
   font-size: 0.9rem;
+}
+
+.go-pokemon > h4 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--body-text);
 }
 
 .prev-next > .go-next > .go-pokemon > p {
@@ -40,4 +47,20 @@
 .go-next:hover {
   cursor: pointer;
   background-color: rgba(59, 58, 58, 0.2);
+}
+
+.info-pokemon-name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-pokemon-name > .pokemon-id{
+  font-family: "JetBrains Mono", "Courier New", Courier, monospace;
+  font-size: 1.1rem;
+}
+
+.info-pokemon-name > h4 {
+  font-size: 1.5rem;
+  padding: 0rem 0rem 0.3rem 0rem;
 }

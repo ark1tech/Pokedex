@@ -7,6 +7,8 @@
 @import "sort.css";
 @import "view-nav.css";
 @import "view-info.css";
+@import "view-stats.css";
+@import "pokemon-types.css";
 
 :root {
   --foreground-rgb: #0f0f0f;
@@ -104,6 +106,17 @@ body {
     top: 3rem;
     right: -6rem;
   }
+  .info-pokemon-metadata,
+  .info-pokemon-desc,
+  .info-pokemon-stats {
+    width: 100%;
+    height: auto;
+  }
+
+  .info-pokemon-type {
+    width: 100%;
+    flex-direction: column;
+  }
 }
 
 /* sm */
@@ -129,6 +142,18 @@ body {
     top: 4rem;
     right: -18rem;
   }
+
+  .info-pokemon > img {
+    width: 80%;
+    height: auto;
+  }
+
+  .go-pokemon {
+    display: none;
+  }
+  .info-pokemon-weakness-content {
+    flex-direction: column;
+  }
 }
 
 /* xs */
@@ -144,7 +169,7 @@ body {
   input,
   li,
   p {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
   .cards-img-container > img {
     width: 60%;
@@ -152,7 +177,7 @@ body {
     right: -10rem;
   }
   .go-pokemon {
-    display:none;
+    display: none;
   }
 }
 

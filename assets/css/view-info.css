@@ -10,34 +10,92 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  align-items: center;
+  gap: 1rem;
 }
 
 .info-pokemon {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
+  position: relative;
 }
 
 .info-pokemon > img {
   width: 50%;
   height: auto;
+  margin-bottom: -1rem;
 }
 
-.info-metadata {
+/* .info-pokemon :not(img) {
+  position: absolute;
+} */
+
+.info-pokemon-desc {
+  width: 70%;
+  text-align: center;
+  text-wrap: balance;
+  padding: 1rem 2rem 1rem 2rem;
+  border-radius: 10px;
+  border: 0.5px solid rgba(82, 77, 77, 0.308);
+}
+
+.info-pokemon-type{
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.main-type{
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+}
+.info-pokemon-weakness, .info-pokemon-weakness-content{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.info-pokemon-weakness-content >p {
+  font-family: "Reddit Sans", Arial, Helvetica, sans-serif;
+  color: rgb(198, 198, 198);
+  font-size: 0.8rem;
+}
+
+.info-pokemon-weakness > p:not(.info-title){
+  background-color: transparent;
+  border: 0.5px solid rgba(115, 114, 114, 0.308);
+}
+
+.info-pokemon-weakness > p:hover{
+  background-color:initial;
+}
+
+.info-pokemon-metadata {
+  width: fit-content;
+  width: 70%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  gap: 1rem;
+  column-gap: 1rem;
+  row-gap: 1rem;
   justify-content: space-around;
-  padding: 1rem;
-  border-radius: 999px;
-  border: 0.5px solid rgba(82, 77, 77, 0.308);
-  background-image: linear-gradient(
+  /* padding: 1rem 2rem 1rem 2rem;
+  border-radius: 10px;
+  border: 0.5px solid rgba(82, 77, 77, 0.308); */
+  /* background-image: linear-gradient(
     to bottom right,
     rgba(31, 31, 31, 0.649),
     rgba(18, 18, 18, 0.278)
-  );
+  ); */
 }
 
 .data-metadata {
@@ -52,9 +110,19 @@
   font-weight: 500;
   font-family: "Reddit Sans", Arial, Helvetica, sans-serif;
   color: rgb(198, 198, 198);
+  font-size: 0.8rem;
+}
+
+.info-metadata-desc {
+  font-size: 0.8rem;
 }
 
 .info-gender {
   display: flex;
   flex-direction: row;
+}
+
+.info-gender > img {
+  width: 18px;
+  height: auto;
 }
