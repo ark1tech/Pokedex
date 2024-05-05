@@ -1,0 +1,43 @@
+.prev-next {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.go-prev,
+.go-next {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+  transition: background-color 100ms linear;
+  border-radius: 5px;
+}
+
+.go-prev {
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+}
+
+.go-next {
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+}
+
+.go-pokemon {
+  display: flex;
+  flex-direction: column;
+}
+
+.go-pokemon > p {
+  font-family: "JetBrains Mono", "Courier New", Courier, monospace;
+  font-size: 0.9rem;
+}
+
+.prev-next > .go-next > .go-pokemon > p {
+  text-align: right;
+}
+
+.go-prev:hover,
+.go-next:hover {
+  cursor: pointer;
+  background-color: rgba(59, 58, 58, 0.2);
+}

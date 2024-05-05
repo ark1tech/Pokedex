@@ -72,7 +72,7 @@
 }
 
 .cards-poke-bg > img {
-  transition: filter 150ms linear;
+  transition: filter, opacity 150ms linear;
   position: absolute;
   top: -7rem;
   right: 0rem;
@@ -87,6 +87,7 @@
 
 .card-bg:hover > .cards-poke-bg > img {
   filter: grayscale(0);
+  opacity: 0.1;
 }
 
 .cards-title {
@@ -98,7 +99,6 @@
 .cards-title > p {
   font-family: "JetBrains Mono", "Courier New", Courier, monospace;
   font-size: 0.9rem;
-  /* background-color: rgb(50, 50, 50); */
 }
 
 .cards-title > h4 {

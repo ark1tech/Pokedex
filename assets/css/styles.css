@@ -5,6 +5,8 @@
 @import "search.css";
 @import "cards.css";
 @import "sort.css";
+@import "view-nav.css";
+@import "view-info.css";
 
 :root {
   --foreground-rgb: #0f0f0f;
@@ -149,6 +151,9 @@ body {
     top: 3.5rem;
     right: -10rem;
   }
+  .go-pokemon {
+    display:none;
+  }
 }
 
 h5 {
@@ -190,6 +195,7 @@ li {
   text-wrap: pretty;
   font-kerning: auto;
   font-weight: 300;
+  text-decoration: none;
 }
 
 /*  GLOBAL CLASSES */
@@ -205,4 +211,8 @@ li {
 
 .occupy {
   width: 100%;
+}
+
+.ceiling {
+  max-height: 100%;
 }

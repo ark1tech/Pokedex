@@ -1,0 +1,60 @@
+.info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: space-between;
+  padding: 0.5rem;
+}
+
+.info-pic-desc {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.info-pokemon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-pokemon > img {
+  width: 50%;
+  height: auto;
+}
+
+.info-metadata {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: space-around;
+  padding: 1rem;
+  border-radius: 999px;
+  border: 0.5px solid rgba(82, 77, 77, 0.308);
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(31, 31, 31, 0.649),
+    rgba(18, 18, 18, 0.278)
+  );
+}
+
+.data-metadata {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.info-title {
+  font-weight: 500;
+  font-family: "Reddit Sans", Arial, Helvetica, sans-serif;
+  color: rgb(198, 198, 198);
+}
+
+.info-gender {
+  display: flex;
+  flex-direction: row;
+}

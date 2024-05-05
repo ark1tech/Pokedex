@@ -2,7 +2,7 @@ main {
   max-width: var(--content-width);
   margin-left: auto;
   margin-right: auto;
-  padding: 2rem 2.5rem 2rem 2.5rem;
+  padding: 0rem 2.5rem 2rem 2.5rem;
   width: 100svw;
   display: flex;
   flex-direction: column;
@@ -10,6 +10,38 @@ main {
 }
 
 .title {
-    /* margin: 0 0 1rem 0; */
-    text-align: center;
+  /* margin: 0 0 1rem 0; */
+  text-align: center;
+}
+
+.title-thin {
+  font-weight: 200;
+}
+
+@keyframes background-pan {
+  from {
+    background-position: 0% center;
+  }
+
+  to {
+    background-position: -200% center;
+  }
+}
+
+.magic-text {
+  animation: background-pan 8s linear infinite;
+  background: linear-gradient(
+    to right,
+    rgb(255, 105, 105),
+    rgb(255, 232, 56),
+    rgb(96, 191, 255),
+    rgb(62, 75, 255),
+    rgb(255, 105, 105)
+  );
+  background-size: 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+  filter:saturate(0.6);
 }

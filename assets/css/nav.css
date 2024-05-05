@@ -13,6 +13,7 @@ nav {
   display: flex;
   flex-direction: row;
   gap: 20px;
+  padding: calc(0.5rem + 0.5px) 0rem calc(0.5rem + 0.5px) 0rem;
 }
 
 .nav-container {
@@ -21,16 +22,32 @@ nav {
   align-items: center;
   justify-content: space-between;
   width: inherit;
+  gap: 10%;
 }
 
-.nav-logo {
+.nav-logo > a {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 5px;
 }
 
-.nav-logo > img {
+.nav-logo > a > img {
   height: auto;
   width: 20px;
+  rotate: -30deg;
+  transition: rotate 200ms cubic-bezier(.25,.75,.85,.92);
 }
+
+.nav-logo:hover > a > img {
+  rotate: 360deg;
+}
+
+.nav-info > a {
+  transition: color 100ms linear;
+}
+
+.nav-info > a:hover {
+  color: rgb(255, 143, 143);
+}
+

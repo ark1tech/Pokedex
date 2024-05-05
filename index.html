@@ -28,16 +28,18 @@
         <nav>
             <div class="nav-container">
                 <div class="nav-logo">
-                    <img src="./assets/icons/pokeball.svg" />
-                    <h4>
-                        POKÉDEX
-                    </h4>
+                    <a href="./index.html" class="occupy">
+                        <img src="./assets/icons/pokeball.svg" />
+                        <h4>
+                            POKÉDEX
+                        </h4>
+                    </a>
                 </div>
                 <div class="nav-info">
-                    <a>
-                        PokeAPI
+                    <a href="https://pokeapi.co/docs/v2" target="_blank">
+                        PokéAPI
                     </a>
-                    <a>
+                    <a href="https://github.com/ark1tech/Pokedex" target="_blank">
                         Repository
                     </a>
                 </div>
@@ -45,8 +47,8 @@
         </nav>
 
         <main>
-            <h1 class="title occupy">
-                Who's that Pokémon?
+            <h1 class="title magic-text occupy">
+               <span class ="title-thin">Who's that</span> Pokémon?
             </h1>
             <div class="occupy search-container">
                 <img src="./assets/icons/search.svg" />
@@ -65,33 +67,35 @@
 
             <div class="occupy cards-container">
                 <div class="card-bg">
-                    <div class="cards-poke-bg">
-                        <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/023.png" />
-                    </div>
-                    <div class="card">
-                        <div class="cards-img-container">
-                            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/023.png" />
+                    <a href="./view.html" class="occupy">
+                        <div class="cards-poke-bg">
+                            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png" />
                         </div>
-                        <div class="cards-text">
-                            <div class="cards-title">
-                                <p>#646</p>
-                                <h4>Ekans</h4>
+                        <div class="card">
+                            <div class="cards-img-container">
+                                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png" />
                             </div>
-                            <div class="cards-content">
-                                <p>
-                                    Dragon
-                                </p>
-                                <p>
-                                    Psychic
-                                </p>
+                            <div class="cards-text">
+                                <div class="cards-title">
+                                    <p>#646</p>
+                                    <h4>Ekans</h4>
+                                </div>
+                                <div class="cards-content">
+                                    <p>
+                                        Dragon
+                                    </p>
+                                    <p>
+                                        Psychic
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </main>
     </div>
-    <script src="./assets/js/index.js"></script>
+    <script src="./assets/js/index.js" defer></script>
     <!-- <script src="./assets/js/autocomplete.js"></script> -->
 </body>
 
