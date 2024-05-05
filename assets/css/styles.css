@@ -95,12 +95,12 @@ body {
     font-size: 1rem;
   }
   .card-bg {
-    min-width: 47%;
+    width: 47%;
   }
   .cards-img-container > img {
     width: 75%;
-    top: 2rem;
-    right: -8rem;
+    top: 3rem;
+    right: -6rem;
   }
 }
 
@@ -120,12 +120,12 @@ body {
     font-size: 0.9rem;
   }
   .card-bg {
-    min-width: 100%;
+    width: 100%;
   }
   .cards-img-container > img {
     width: 48%;
-    top: 3rem;
-    right: -20rem;
+    top: 4rem;
+    right: -18rem;
   }
 }
 
@@ -146,8 +146,8 @@ body {
   }
   .cards-img-container > img {
     width: 60%;
-    top: 3rem;
-    right: -12rem;
+    top: 3.5rem;
+    right: -10rem;
   }
 }
 
