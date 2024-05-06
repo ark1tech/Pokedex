@@ -2,6 +2,8 @@ const load = document.getElementById("load");
 const monsterList = document.getElementById("monster-list");
 const sort = document.getElementById("currentOption");
 const sortChoice = document.getElementById("option");
+const sort2 = document.getElementById("currentOption2");
+const sortChoice2 = document.getElementById("option2");
 
 const POKEMON_COUNT = 1010;
 let count = 10;
@@ -34,13 +36,11 @@ const parseType = (typeList) => {
 
 // get all monsters (we're fetching everything since it's a relatively small dataset)
 const loadMonsters = async () => {
-  skeleton();
   const url = `https://pokeapi.co/api/v2/pokemon?limit=1010`;
   const response = await fetch(url);
   const data = await response.json();
-  monsterList.removeChild(monsterList.lastChild)
   // console.log(data.results);
-  if (sort.textContent === "Name") {
+  if (sort.textContent === "Name" && sort2.textContent === "Descending") {
     return [...data.results].sort((a, b) => {
       if (a.name < b.name) {
         return -1;
@@ -50,9 +50,31 @@ const loadMonsters = async () => {
       }
       return 0;
     });
-  } else {
-    return [...data.results];
-  }
+  } else if (sort.textContent === "Name" && sort2.textContent === "Ascending") {
+    return [...data.results].sort((a, b) => {
+      if (a.name > b.name) {
+        return -1;
+      }
+      if (a.name < b.name) {
+        return 1;
+      }
+      return 0;
+    });
+  } else if (
+    sort2.textContent.toLowerCase() === "Ascending".toLowerCase()
+  ) {
+    return [...data.results].sort((a, b) => {
+      firstId = parseInt(a.url.split("/")[6]);
+      secondId = parseInt(b.url.split("/")[6]);
+      if (firstId > secondId) {
+        return -1;
+      }
+      if (firstId < secondId) {
+        return 1;
+      }
+      return 0;
+    });
+  } else return [...data.results];
 };
 
 // get type
@@ -161,35 +183,3 @@ const showMonsters = async (pokemon) => {
     `;
   monsterList.append(card);
 };
-
-{
-  /* 
-<div class="card-bg">
-    <div class="cards-poke-bg">
-        <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png" />
-    </div>
-    <div class="card">
-        <div class="cards-img-container">
-            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png" />
-        </div>
-        <div class="cards-text">
-            <div class="cards-title">
-                <p>
-                    #646
-                </p>
-                <h4>
-                    Ekans
-                </h4>
-            </div>
-            <div class="cards-content">
-                <p class="dragon">
-                    Dragon
-                </p>
-                <p class="psychic">
-                    Psychic
-                </p>
-            </div>
-        </div>
-    </div>
-</div> */
-}

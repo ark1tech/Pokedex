@@ -34,6 +34,9 @@
                             POKÉDEX
                         </h4>
                     </a>
+                    <a href="./index.html" class="logo">
+                        <h5>by arkitech</h5>
+                    </a>
                 </div>
                 <div class="nav-info">
                     <a href="https://pokeapi.co/docs/v2" target="_blank">
@@ -55,7 +58,7 @@
                 <input id="searchBar" class="occupy" type="text" autocomplete="off" autocorrect="off" spellcheck="false"
                     placeholder="Search">
             </div>
-            <div class="occupy sort-parent">
+            <div class="sort-parent">
                 <p>
                     Sort by
                 </p>
@@ -68,8 +71,19 @@
                     </div>
                     <p id="option" class="dropdown-content">Name</p>
                 </div>
+                <div id="dropdown2" class="drop-container2">
+                    <div class="sort-container2" data-dropdown>
+                        <p id="currentOption2">
+                            Descending
+                        </p>
+                        <img src="./assets/icons/chevdown.svg" />
+                    </div>
+                    <p id="option2" class="dropdown-content2">Ascending</p>
+                </div>
             </div>
-
+            <p id="nothing-found" class="occupy hide">
+                No Pokémons were found.
+            </p>
             <div id="monster-list" class="occupy cards-container">
             </div>
             <div class="occupy load-container">
@@ -77,7 +91,7 @@
             </div>
         </main>
     </div>
-    <script src="./assets/js/index.js" defer></script>
+    <script src="./assets/js/search.js" defer></script>
     <script src="./assets/js/dropdown.js" defer></script>
     <script src="./assets/js/pokelist.js" defer></script>
     <!-- <script src="./assets/js/autocomplete.js"></script> -->
