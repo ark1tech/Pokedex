@@ -48,7 +48,7 @@
 
         <main>
             <h1 class="title magic-text occupy">
-               <span class ="title-thin">Who's that</span> Pokémon?
+                <span class="title-thin">Who's that</span> Pokémon?
             </h1>
             <div class="occupy search-container">
                 <img src="./assets/icons/search.svg" />
@@ -59,43 +59,28 @@
                 <p>
                     Sort by
                 </p>
-                <div class="sort-container">
-                    <p>Name</p>
-                    <img src="./assets/icons/chevdown.svg" />
+                <div id="dropdown" class="drop-container">
+                    <div class="sort-container" data-dropdown>
+                        <p id="currentOption">
+                            Name
+                        </p>
+                        <img src="./assets/icons/chevdown.svg" />
+                    </div>
+                    <p id="option" class="dropdown-content">ID No.</p>
                 </div>
             </div>
 
-            <div class="occupy cards-container">
-                <div class="card-bg">
-                    <a href="./view.html" class="occupy">
-                        <div class="cards-poke-bg">
-                            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png" />
-                        </div>
-                        <div class="card">
-                            <div class="cards-img-container">
-                                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png" />
-                            </div>
-                            <div class="cards-text">
-                                <div class="cards-title">
-                                    <p>#646</p>
-                                    <h4>Ekans</h4>
-                                </div>
-                                <div class="cards-content">
-                                    <p class="dragon">
-                                        Dragon
-                                    </p>
-                                    <p class="psychic">
-                                        Psychic
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+            <div id = "monster-list" class="occupy cards-container">
+                
+            </div>
+            <div class ="occupy load-container">   
+                <p id ="load" class ="load-button">Load more</p>
             </div>
         </main>
     </div>
     <script src="./assets/js/index.js" defer></script>
+    <script src="./assets/js/dropdown.js" defer></script>
+    <script src="./assets/js/pokelist.js" defer></script>
     <!-- <script src="./assets/js/autocomplete.js"></script> -->
 </body>
 

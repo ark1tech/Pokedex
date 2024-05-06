@@ -5,6 +5,7 @@
 @import "search.css";
 @import "cards.css";
 @import "sort.css";
+@import "load.css";
 @import "view-nav.css";
 @import "view-info.css";
 @import "view-stats.css";
@@ -213,6 +214,13 @@ p {
   line-height: 120%;
 }
 
+button{
+  text-decoration: none;
+  outline: none;
+  background-color: transparent;
+  border: 0;
+}
+
 a,
 li {
   font-family: "Albert Sans", Arial, Helvetica, sans-serif;
@@ -240,4 +248,12 @@ li {
 
 .ceiling {
   max-height: 100%;
+}
+
+.hide{
+  display:none;
+}
+
+.show{
+  display:inline-flex;
 }
