@@ -11,6 +11,7 @@ main {
 
 .title {
   /* margin: 0 0 1rem 0; */
+  font-size: 2rem;
   text-align: center;
 }
 
@@ -42,6 +43,5 @@ main {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  white-space: nowrap;
   filter:saturate(0.6);
 }

@@ -4,8 +4,12 @@ const sort = document.getElementById("currentOption");
 const sortChoice = document.getElementById("option");
 const sort2 = document.getElementById("currentOption2");
 const sortChoice2 = document.getElementById("option2");
+const search = document.getElementById("searchBar");
+const nonfound = document.getElementById("nothing-found");
+const yesfound = document.getElementById("thereis-found");
 
 const POKEMON_COUNT = 1010;
+const INT_PATTERN = /\s*^\d+$\s*/;
 let count = 10;
 let loadedMonsters = [];
 
@@ -32,16 +36,10 @@ const parseType = (typeList) => {
   return parsedType;
 };
 
-// API CALLS --------------
-
-// get all monsters (we're fetching everything since it's a relatively small dataset)
-const loadMonsters = async () => {
-  const url = `https://pokeapi.co/api/v2/pokemon?limit=1010`;
-  const response = await fetch(url);
-  const data = await response.json();
-  // console.log(data.results);
+// Sort
+const sortMonsters = (data) => {
   if (sort.textContent === "Name" && sort2.textContent === "Descending") {
-    return [...data.results].sort((a, b) => {
+    return data.sort((a, b) => {
       if (a.name < b.name) {
         return -1;
       }
@@ -51,7 +49,7 @@ const loadMonsters = async () => {
       return 0;
     });
   } else if (sort.textContent === "Name" && sort2.textContent === "Ascending") {
-    return [...data.results].sort((a, b) => {
+    return data.sort((a, b) => {
       if (a.name > b.name) {
         return -1;
       }
@@ -60,10 +58,8 @@ const loadMonsters = async () => {
       }
       return 0;
     });
-  } else if (
-    sort2.textContent.toLowerCase() === "Ascending".toLowerCase()
-  ) {
-    return [...data.results].sort((a, b) => {
+  } else if (sort2.textContent.toLowerCase() === "Ascending".toLowerCase()) {
+    return data.sort((a, b) => {
       firstId = parseInt(a.url.split("/")[6]);
       secondId = parseInt(b.url.split("/")[6]);
       if (firstId > secondId) {
@@ -74,7 +70,28 @@ const loadMonsters = async () => {
       }
       return 0;
     });
-  } else return [...data.results];
+  } else return data;
+};
+
+const toggleUnhide = (element) => {
+  if (element.classList.contains("hide")) element.classList.toggle("hide");
+};
+
+const toggleHide = (element) => {
+  if (!element.classList.contains("hide")) element.classList.toggle("hide");
+};
+
+// API CALLS --------------
+
+// get all monsters (we're fetching everything since it's a relatively small dataset)
+const loadMonsters = async () => {
+  const url = `https://pokeapi.co/api/v2/pokemon?limit=1010`;
+  const response = await fetch(url);
+  const data = await response.json();
+
+  // sort
+  loadedMonsters = [...data.results];
+  return sortMonsters(loadedMonsters);
 };
 
 // get type
@@ -88,11 +105,113 @@ const loadType = async (id) => {
 // pagination
 const viewMonsters = () => {
   loadMonsters().then(async (data) => {
+    // ui checks
+    toggleUnhide(load);
+    toggleHide(yesfound);
+    toggleHide(nonfound);
     for (let i = count - 10; i < count; i++) {
       // console.log(data[i]);
       await showMonsters(data[i]);
     }
   });
+};
+
+// initial 10
+window.addEventListener("load", () => {
+  viewMonsters();
+});
+
+// add more 10
+load.onclick = () => {
+  count += 10;
+  if (count >= POKEMON_COUNT) {
+    count = POKEMON_COUNT;
+    toggleHide(load);
+  }
+  viewMonsters();
+};
+
+// search
+search.addEventListener("input", () => {
+  // debounce
+  searchInput = search.value.toLowerCase().trim();
+  if (searchInput === "") {
+    searchResult = loadedMonsters;
+  } else if (INT_PATTERN.test(searchInput)) {
+    searchResult = loadedMonsters.filter((pokemon) => {
+      numberID = pokemon.url.split("/")[6];
+      displayID = "0".repeat(4 - numberID.length) + numberID;
+      return displayID.startsWith(searchInput);
+    });
+  } else {
+    searchResult = loadedMonsters.filter((pokemon) => {
+      return pokemon.name.startsWith(searchInput);
+    });
+  }
+
+  if (searchInput.length === 0) {
+    monsterList.innerHTML = "";
+    count = 10;
+    viewMonsters();
+  } else {
+    toggleHide(load);
+    monsterList.innerHTML = "";
+    if (searchResult.length === 0 && searchInput.length !== 0) {
+      toggleHide(yesfound);
+      toggleUnhide(nonfound);
+    } else {
+      yesfound.textContent = `${searchResult.length} Pokémon${
+        searchResult.length === 1 ? "" : "s"
+      } found`;
+      toggleUnhide(yesfound);
+      toggleHide(nonfound);
+      for (let i = 0; i < searchResult.length; i++) {
+        showMonsters(searchResult[i]);
+      }
+    }
+  }
+});
+
+// display
+const showMonsters = async (pokemon) => {
+  const numberID = pokemon.url.split("/")[6];
+
+  // assets url id + frontend id conventions
+  let urlID = numberID;
+  let displayID = numberID;
+  if (numberID.length != 4) {
+    urlID = "0".repeat(3 - numberID.length) + numberID;
+    displayID = "0".repeat(4 - numberID.length) + numberID;
+  }
+
+  // get type
+  const typeList = await loadType(numberID);
+  let pokemonType = parseType(typeList);
+
+  const card = document.createElement("div");
+  card.className = "card-bg";
+  card.innerHTML = `
+      <div class="cards-poke-bg">
+          <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/${urlID}.png" />
+      </div>
+      <div class="card">
+          <div class="cards-img-container">
+              <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/${urlID}.png" />
+          </div>
+          <div class="cards-text">
+              <div class="cards-title">
+                  <p>
+                      #${displayID}
+                  </p>
+                  <h4>
+                      ${titleCase(pokemon.name)}
+                  </h4>
+              </div>
+              ${pokemonType}
+          </div>
+      </div>
+    `;
+  monsterList.append(card);
 };
 
 const skeleton = () => {
@@ -124,62 +243,4 @@ const skeleton = () => {
     `;
     skeletonBatch.append(card);
   }
-};
-
-// initial 10
-window.addEventListener("load", (e) => {
-  viewMonsters();
-});
-
-// add more 10
-load.onclick = () => {
-  count += 10;
-  if (count >= POKEMON_COUNT) {
-    count = POKEMON_COUNT;
-    load.classList.add("hide");
-  }
-  viewMonsters();
-};
-
-// display
-const showMonsters = async (pokemon) => {
-  const numberID = pokemon.url.split("/")[6];
-
-  // assets url id + frontend id conventions
-  let urlID = numberID;
-  let displayID = numberID;
-  if (numberID.length != 4) {
-    urlID = "0".repeat(3 - numberID.length) + numberID;
-    displayID = "0".repeat(4 - numberID.length) + numberID;
-  }
-
-  // get type
-  const typeList = await loadType(numberID);
-  let pokemonType = parseType(typeList);
-  // setTimeout(parseType(typeList), 2000);
-
-  const card = document.createElement("div");
-  card.className = "card-bg";
-  card.innerHTML = `
-      <div class="cards-poke-bg">
-          <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/${urlID}.png" />
-      </div>
-      <div class="card">
-          <div class="cards-img-container">
-              <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/${urlID}.png" />
-          </div>
-          <div class="cards-text">
-              <div class="cards-title">
-                  <p>
-                      #${displayID}
-                  </p>
-                  <h4>
-                      ${titleCase(pokemon.name)}
-                  </h4>
-              </div>
-              ${pokemonType}
-          </div>
-      </div>
-    `;
-  monsterList.append(card);
 };

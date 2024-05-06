@@ -5,6 +5,7 @@
   gap: 0.3rem;
 }
 
+
 /* .sort-parent > p {
   color: rgb(76, 74, 74);
 } */
@@ -16,16 +17,17 @@
   padding: 0.3rem 0.5rem 0.3rem 0.5rem;
   border-radius: 5px 5px 0px 0px;
   width: fit-content;
+  gap:1rem;
 }
 
 .sort-container > p {
   font-weight: 500;
-  width: 3rem;
+  width: 100%;
 }
 
 .sort-container2 > p {
   font-weight: 500;
-  width: 6rem;
+  width: 100%;
 }
 
 .sort-container:hover, .sort-container2:hover {

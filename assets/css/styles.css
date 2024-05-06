@@ -27,7 +27,7 @@
 } */
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
   height: 3px;
 }
 ::-webkit-scrollbar-track {
@@ -179,6 +179,9 @@ body {
   }
   .go-pokemon {
     display: none;
+  }
+  .sort-parent {
+    justify-content: space-between;
   }
 }
 
