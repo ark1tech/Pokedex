@@ -18,4 +18,9 @@ option.onclick = () => {
   const temp = option.textContent;
   option.textContent = currentOption.textContent;
   currentOption.textContent = temp;
+
+  // reset 
+  monsterList.innerHTML = "";
+  count = 10; 
+  viewMonsters();
 };

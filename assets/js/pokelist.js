@@ -1,6 +1,9 @@
 const load = document.getElementById("load");
 const monsterList = document.getElementById("monster-list");
-const POKEMON_COUNT = 1025;
+const sort = document.getElementById("currentOption");
+const sortChoice = document.getElementById("option");
+
+const POKEMON_COUNT = 1010;
 let count = 10;
 let loadedMonsters = [];
 
@@ -31,10 +34,23 @@ const parseType = (typeList) => {
 
 // get all monsters (we're fetching everything since it's a relatively small dataset)
 const loadMonsters = async () => {
-  const url = `https://pokeapi.co/api/v2/pokemon?limit=1500`;
+  const url = `https://pokeapi.co/api/v2/pokemon?limit=1010`;
   const response = await fetch(url);
   const data = await response.json();
-  return data;
+  // console.log(data.results);
+  if (sort.textContent === "Name") {
+    return [...data.results].sort((a, b) => {
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    });
+  } else {
+    return [...data.results];
+  }
 };
 
 // get type
@@ -49,15 +65,16 @@ const loadType = async (id) => {
 const viewMonsters = () => {
   loadMonsters().then(async (data) => {
     for (let i = count - 10; i < count; i++) {
-      await showMonsters([...data.results][i]);
+      // console.log(data[i]);
+      await showMonsters(data[i]);
     }
   });
 };
 
 // initial 10
-window.onload = () => {
+window.addEventListener("load", (e) => {
   viewMonsters();
-};
+});
 
 // add more 10
 load.onclick = () => {
