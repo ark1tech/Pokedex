@@ -10,6 +10,7 @@ const yesfound = document.getElementById("thereis-found");
 
 const POKEMON_COUNT = 1010;
 const INT_PATTERN = /\s*^\d+$\s*/;
+let timer;
 let count = 10;
 let loadedMonsters = [];
 
@@ -116,24 +117,7 @@ const viewMonsters = () => {
   });
 };
 
-// initial 10
-window.addEventListener("load", () => {
-  viewMonsters();
-});
-
-// add more 10, wait til the next batch has been loaded
-load.onclick = async () => {
-  count += 10;
-  if (count >= POKEMON_COUNT) {
-    count = POKEMON_COUNT;
-    toggleHide(load);
-  }
-  await viewMonsters();
-};
-
-// search
-search.addEventListener("input", () => {
-  // debounce
+const searchMonsters = () => {
   searchInput = search.value.toLowerCase().trim();
   if (searchInput === "") {
     searchResult = loadedMonsters;
@@ -170,9 +154,33 @@ search.addEventListener("input", () => {
       }
     }
   }
+};
+
+// initial 10
+window.addEventListener("load", () => {
+  viewMonsters();
 });
 
-// display
+// add more 10, wait til the next batch has been loaded
+load.onclick = async () => {
+  count += 10;
+  if (count >= POKEMON_COUNT) {
+    count = POKEMON_COUNT;
+    toggleHide(load);
+  }
+  await viewMonsters();
+};
+
+// search
+search.addEventListener("input", () => {
+  // debounce
+  clearTimeout(timer);
+  timer = setTimeout(() => {
+    searchMonsters();
+  }, 200);
+});
+
+// display pokemons
 const showMonsters = async (pokemon) => {
   const numberID = pokemon.url.split("/")[6];
 
