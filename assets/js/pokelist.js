@@ -34,9 +34,11 @@ const parseType = (typeList) => {
 
 // get all monsters (we're fetching everything since it's a relatively small dataset)
 const loadMonsters = async () => {
+  skeleton();
   const url = `https://pokeapi.co/api/v2/pokemon?limit=1010`;
   const response = await fetch(url);
   const data = await response.json();
+  monsterList.removeChild(monsterList.lastChild)
   // console.log(data.results);
   if (sort.textContent === "Name") {
     return [...data.results].sort((a, b) => {
@@ -69,6 +71,37 @@ const viewMonsters = () => {
       await showMonsters(data[i]);
     }
   });
+};
+
+const skeleton = () => {
+  const skeletonBatch = document.createElement("div");
+  skeletonBatch.className = "skeleton-batch";
+  monsterList.append(skeletonBatch);
+  for (let index = 0; index < 10; index++) {
+    const card = document.createElement("div");
+    card.className = "card-bg";
+    card.innerHTML = `
+      <div class="cards-poke-bg skeleton">
+      </div>
+      <div class="card transparent">
+          <div class="cards-img-container">
+              <img src=".assets/icons/placehold.png" />
+          </div>
+          <div class="cards-text">
+              <div class="cards-title">
+                  <p>
+                      ...
+                  </p>
+                  <h4>
+                  ...
+                  </h4>
+              </div>
+              ..
+          </div>
+      </div>
+    `;
+    skeletonBatch.append(card);
+  }
 };
 
 // initial 10
