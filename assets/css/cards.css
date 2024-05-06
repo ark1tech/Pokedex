@@ -11,7 +11,7 @@
 .card-bg {
   background-image: linear-gradient(
     to bottom,
-    rgba(116, 116, 116, 0.468),
+    rgba(94, 103, 124, 0.382),
     rgba(150, 150, 150, 0.119),
     rgba(150, 150, 150, 0)
   );
@@ -20,15 +20,15 @@
   padding: 1px 1px 0px 1px;
   border-radius: 5px;
   position: relative;
+  transition: box-shadow 150ms linear;
 }
 
 .card {
   position: relative;
   width: 100%;
   height: 120%;
-  background-color: rgb(31, 31, 31);
+  background-color: #081019;
   border-radius: 4.5px;
-  transition: box-shadow 150ms linear;
   display: flex;
   flex-direction: column;
   gap: 7rem;
@@ -36,7 +36,7 @@
 }
 
 .card-bg:hover {
-  box-shadow: 0px 0px 10px 0.5px rgba(100, 100, 100, 0.2);
+  box-shadow: 0px 0px 10px 1px rgba(61, 61, 61, 0.671);
 }
 
 .card-bg:hover > .card > .cards-img-container > img {
@@ -81,13 +81,13 @@
   margin: auto;
   height: auto;
   width: 150%;
-  opacity: 0.07;
+  opacity: 0.06;
   filter: grayscale(1);
 }
 
 .card-bg:hover > .cards-poke-bg > img {
   filter: grayscale(0);
-  opacity: 0.1;
+  opacity: 0.11;
 }
 
 .cards-title {

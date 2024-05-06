@@ -121,14 +121,14 @@ window.addEventListener("load", () => {
   viewMonsters();
 });
 
-// add more 10
-load.onclick = () => {
+// add more 10, wait til the next batch has been loaded
+load.onclick = async () => {
   count += 10;
   if (count >= POKEMON_COUNT) {
     count = POKEMON_COUNT;
     toggleHide(load);
   }
-  viewMonsters();
+  await viewMonsters();
 };
 
 // search
@@ -161,8 +161,8 @@ search.addEventListener("input", () => {
       toggleUnhide(nonfound);
     } else {
       yesfound.textContent = `${searchResult.length} Pokémon${
-        searchResult.length === 1 ? "" : "s"
-      } found`;
+        searchResult.length === 1 ? " was" : "s were"
+      } found.`;
       toggleUnhide(yesfound);
       toggleHide(nonfound);
       for (let i = 0; i < searchResult.length; i++) {
@@ -214,33 +214,33 @@ const showMonsters = async (pokemon) => {
   monsterList.append(card);
 };
 
-const skeleton = () => {
-  const skeletonBatch = document.createElement("div");
-  skeletonBatch.className = "skeleton-batch";
-  monsterList.append(skeletonBatch);
-  for (let index = 0; index < 10; index++) {
-    const card = document.createElement("div");
-    card.className = "card-bg";
-    card.innerHTML = `
-      <div class="cards-poke-bg skeleton">
-      </div>
-      <div class="card transparent">
-          <div class="cards-img-container">
-              <img src=".assets/icons/placehold.png" />
-          </div>
-          <div class="cards-text">
-              <div class="cards-title">
-                  <p>
-                      ...
-                  </p>
-                  <h4>
-                  ...
-                  </h4>
-              </div>
-              ..
-          </div>
-      </div>
-    `;
-    skeletonBatch.append(card);
-  }
-};
+// const skeleton = () => {
+//   const skeletonBatch = document.createElement("div");
+//   skeletonBatch.className = "skeleton-batch";
+//   monsterList.append(skeletonBatch);
+//   for (let index = 0; index < 10; index++) {
+//     const card = document.createElement("div");
+//     card.className = "card-bg";
+//     card.innerHTML = `
+//       <div class="cards-poke-bg skeleton">
+//       </div>
+//       <div class="card transparent">
+//           <div class="cards-img-container">
+//               <img src=".assets/icons/placehold.png" />
+//           </div>
+//           <div class="cards-text">
+//               <div class="cards-title">
+//                   <p>
+//                       ...
+//                   </p>
+//                   <h4>
+//                   ...
+//                   </h4>
+//               </div>
+//               ..
+//           </div>
+//       </div>
+//     `;
+//     skeletonBatch.append(card);
+//   }
+// };

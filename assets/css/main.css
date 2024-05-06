@@ -1,5 +1,6 @@
 main {
   max-width: var(--content-width);
+  min-height: 100svh;
   margin-left: auto;
   margin-right: auto;
   padding: 0rem 2.5rem 2rem 2.5rem;
@@ -28,6 +29,7 @@ main {
     background-position: -200% center;
   }
 }
+
 
 .magic-text {
   animation: background-pan 8s linear infinite;

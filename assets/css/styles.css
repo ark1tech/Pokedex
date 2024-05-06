@@ -14,9 +14,8 @@
 :root {
   --foreground-rgb: #0f0f0f;
   --background-rgb: #000000;
-  --main-color: #ef542b;
   --content-width: 850px;
-  --body-text: rgb(126, 126, 126);
+  --body-text: rgb(163, 163, 163);
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -29,7 +28,9 @@
 ::-webkit-scrollbar {
   width: 8px;
   height: 3px;
+  scrollbar-gutter: stable;
 }
+
 ::-webkit-scrollbar-track {
   background: rgb(19, 19, 19);
 }
@@ -53,13 +54,19 @@ body {
   min-height: 100svh;
   color: rgb(var(--foreground-rgb));
   background: var(--background-rgb);
-  background-image: radial-gradient(
-    circle farthest-corner at top,
-    #232323 0px,
-    var(--background-rgb) 1000px
-  );
-  background-repeat: no-repeat;
-  background-blend-mode: normal;
+  background-image: url("../icons/bg.svg"),
+    radial-gradient(
+      circle farthest-corner at top,
+      #020e1c 0px,
+      #00050b 1000px,
+      #020e1c 2000px,
+      #00050b 3000px,
+      #00050b 4000px,
+      #020e1c 5000px,
+      #00050b 6000px
+    );
+  background-repeat: repeat, no-repeat;
+  background-blend-mode: color-dodge, normal;
   background-size: 100%;
 }
 
@@ -183,6 +190,7 @@ body {
   .sort-parent {
     justify-content: space-between;
   }
+  
 }
 
 h5 {
@@ -240,8 +248,9 @@ li {
   max-width: 1536px;
   margin-left: auto;
   margin-right: auto;
-
+  position: relative;
   display: flex;
+  position: relative;
   flex-direction: column;
 }
 
@@ -298,4 +307,12 @@ li {
   justify-content: space-between;
   margin-top: 2rem;
   width: 100%;
+}
+
+.bg {
+  position: absolute;
+  min-width: 100svw;
+  min-height: 100svh;
+  border: white 1px;
+  background-image: url("./icons/bg.svg");
 }
