@@ -177,7 +177,7 @@ search.addEventListener("input", () => {
   clearTimeout(timer);
   timer = setTimeout(() => {
     searchMonsters();
-  }, 200);
+  }, 300);
 });
 
 // display pokemons
@@ -219,6 +219,12 @@ const showMonsters = async (pokemon) => {
           </div>
       </div>
     `;
+  card.addEventListener("click", async () => {
+    // const success = async (numberID) => {
+    //   console.log("haha");
+    // };
+    window.location.href = `./view.html?id=${numberID}`;
+  });
   monsterList.append(card);
 };
 

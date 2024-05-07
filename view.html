@@ -42,37 +42,37 @@
             </div>
         </nav>
 
-        <main class="ceiling">
+        <main class="ceiling" id ="view-container">
             <div class="occupy prev-next">
                 <div class="go-prev">
                     <img src="assets/icons/chevleft.svg">
                     <div class="go-pokemon">
-                        <p class="pokemon-id">
+                        <p class="pokemon-id" data-prev-id>
                             <!-- #1000 -->
                         </p>
-                        <h4>
+                        <h4 data-prev-name>
                             <!-- Crabominable -->
                         </h4>
                     </div>
                 </div>
                 <div class="info-pokemon-name">
-                    <p class="pokemon-id">
+                    <p class="pokemon-id" data-current-id>
                         <!-- #1000 -->
                     </p>
-                    <h4>
+                    <h4 data-current-name>
                         <!-- Crabominable -->
                     </h4>
-                    <div class="main-type">
+                    <div class="main-type" data-current-type>
                         <!-- <p class="fire">Fire</p>
                         <p class="flying">Flying</p> -->
                     </div>
                 </div>
                 <div class="go-next">
                     <div class="go-pokemon">
-                        <p class="pokemon-id">
+                        <p class="pokemon-id" data-next-id>
                             <!-- #1000 -->
                         </p>
-                        <h4>
+                        <h4 data-next-name>
                             <!-- Crabominable -->
                         </h4>
                     </div>
@@ -80,11 +80,11 @@
                 </div>
             </div>
             <div class="info-container">
-                <div class="occupy info-pokemon">
+                <div class="occupy info-pokemon" data-img>
                     <!-- <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png" /> -->
                     <div class="info-pokemon-weakness-content">
                         <p>Weaknesses</p>
-                        <div class="info-pokemon-weakness">
+                        <div class="info-pokemon-weakness" data-weaknesses>
                             <!-- <p class="water">Fire</p>
                             <p class="electric">Fighting</p>
                             <p class="rock">Poison</p>
@@ -94,7 +94,7 @@
                             <p class="rock">Steel</p> -->
                         </div>
                     </div>
-                    <p class="info-pokemon-desc">
+                    <p class="info-pokemon-desc" data-desc>
                         <!-- If Charizard becomes truly angered, the flame at the tip of its tail burns in a light blue
                         shade. -->
                     </p>
@@ -103,15 +103,15 @@
                             <p class="info-title">
                                 Height
                             </p>
-                            <p class="info-metadata-desc">
+                            <p class="info-metadata-desc" data-height>
                                 <!-- 2'04'' -->
                             </p>
                         </div>
-                        <div id="weight" class="data-metadata">
+                        <div id="weight" class="data-metadata" >
                             <p class="info-title">
                                 Weight
                             </p>
-                            <p class="info-metadata-desc">
+                            <p class="info-metadata-desc" data-weight>
                                 <!-- 15.2 lbs -->
                             </p>
                         </div>
@@ -119,7 +119,7 @@
                             <p class="info-title">
                                 Gender
                             </p>
-                            <div class="info-gender">
+                            <div class="info-gender" data-gender>
                                 <img src="assets/icons/male.svg">
                                 <img src="assets/icons/female.svg">
                             </div>
@@ -128,7 +128,7 @@
                             <p class="info-title">
                                 Category
                             </p>
-                            <p class="info-metadata-desc">
+                            <p class="info-metadata-desc" data-category>
                                 <!-- Frost Tree -->
                             </p>
                         </div>
@@ -136,7 +136,7 @@
                             <p class="info-title">
                                 Ability
                             </p>
-                            <p class="info-metadata-desc">
+                            <p class="info-metadata-desc" data-ability>
                                 <!-- Power of Alchemy -->
                             </p>
                         </div>
@@ -144,45 +144,45 @@
                     <div class="info-pokemon-stats">
                         <div class="pokemon-stat" id="hp">
                             <p class="info-title">HP</p>
-                            <p class="info-metadata-desc">
+                            <p class="info-metadata-desc" data-hp-text>
                                 <!-- 255 -->
                             </p>
-                            <progress value="" max="255"></progress>
+                            <progress value="" max="255"></progress data-hp-prog>
                         </div>
                         <div class="pokemon-stat" id="attack">
                             <p class="info-title">Attack</p>
-                            <p class="info-metadata-desc">
+                            <p class="info-metadata-desc" data-atk-text>
                                 <!-- 255 -->
                             </p>
-                            <progress value="" max="255"></progress>
+                            <progress value="" max="255" data-atk-prog></progress>
                         </div>
                         <div class="pokemon-stat" id="defense">
                             <p class="info-title">Defense</p>
-                            <p class="info-metadata-desc">
+                            <p class="info-metadata-desc" data-def-text>
                                 <!-- 255 -->
                             </p>
-                            <progress value="" max="255"></progress>
+                            <progress value="" max="255" data-def-prog></progress>
                         </div>
                         <div class="pokemon-stat" id="special-attack">
                             <p class="info-title">Special Attack</p>
-                            <p class="info-metadata-desc">
+                            <p class="info-metadata-desc" data-spatk-text>
                                 <!-- 255 -->
                             </p>
-                            <progress value="" max="255"></progress>
+                            <progress value="" max="255" data-spatk-prog></progress>
                         </div>
                         <div class="pokemon-stat" id="special-defense">
                             <p class="info-title">Special Defense</p>
-                            <p class="info-metadata-desc">
+                            <p class="info-metadata-desc" data-spdef-text>
                                 <!-- 255 -->
                             </p>
-                            <progress value="" max="255"></progress>
+                            <progress value="" max="255" data-spdef-prog></progress>
                         </div>
                         <div class="pokemon-stat" id="Speed">
                             <p class="info-title">Speed</p>
-                            <p class="info-metadata-desc">
+                            <p class="info-metadata-desc" data-speed-text>
                                 <!-- 255 -->
                             </p>
-                            <progress value="" max="255"></progress>
+                            <progress value="" max="255" data-speed-prog></progress>
                         </div>
                     </div>
                 </div>

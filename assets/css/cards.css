@@ -21,6 +21,7 @@
   border-radius: 5px;
   position: relative;
   transition: box-shadow 150ms linear;
+  cursor: pointer;
 }
 
 .card {
