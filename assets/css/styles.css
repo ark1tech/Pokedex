@@ -162,6 +162,10 @@ body {
   .info-pokemon-weakness-content {
     flex-direction: column;
   }
+  .go-prev,
+  .go-next {
+    flex: 0;
+  }
 }
 
 /* xs */
@@ -190,7 +194,6 @@ body {
   .sort-parent {
     justify-content: space-between;
   }
-  
 }
 
 h5 {

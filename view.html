@@ -42,9 +42,9 @@
             </div>
         </nav>
 
-        <main class="ceiling" id ="view-container">
+        <main class="ceiling" id="view-container">
             <div class="occupy prev-next">
-                <div class="go-prev">
+                <div class="go-prev" id="loadPrev">
                     <img src="assets/icons/chevleft.svg">
                     <div class="go-pokemon">
                         <p class="pokemon-id" data-prev-id>
@@ -67,7 +67,7 @@
                         <p class="flying">Flying</p> -->
                     </div>
                 </div>
-                <div class="go-next">
+                <div class="go-next" id="loadNext">
                     <div class="go-pokemon">
                         <p class="pokemon-id" data-next-id>
                             <!-- #1000 -->
@@ -80,8 +80,9 @@
                 </div>
             </div>
             <div class="info-container">
-                <div class="occupy info-pokemon" data-img>
-                    <!-- <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png" /> -->
+                <div class="occupy info-pokemon">
+                    <img data-img src="" />
+                    <p class ="disclaimer hide" id="disclaimer">* Currently doesn't support accurate dual-type weaknesses</p>
                     <div class="info-pokemon-weakness-content">
                         <p>Weaknesses</p>
                         <div class="info-pokemon-weakness" data-weaknesses>
@@ -107,7 +108,7 @@
                                 <!-- 2'04'' -->
                             </p>
                         </div>
-                        <div id="weight" class="data-metadata" >
+                        <div id="weight" class="data-metadata">
                             <p class="info-title">
                                 Weight
                             </p>
@@ -115,7 +116,7 @@
                                 <!-- 15.2 lbs -->
                             </p>
                         </div>
-                        <div id="gender" class="data-metadata">
+                        <!-- <div id="gender" class="data-metadata">
                             <p class="info-title">
                                 Gender
                             </p>
@@ -123,7 +124,7 @@
                                 <img src="assets/icons/male.svg">
                                 <img src="assets/icons/female.svg">
                             </div>
-                        </div>
+                        </div> -->
                         <div id="category" class="data-metadata">
                             <p class="info-title">
                                 Category
@@ -189,8 +190,8 @@
             </div>
         </main>
     </div>
-    <script src="./assets/js/index.js"></script>
-    <!-- <script src="./assets/js/autocomplete.js"></script> -->
+    <script src="./assets/js/pokeview.js" defer></script>
+    <script src="./assets/js/pokeload.js" defer></script>
 </body>
 
 </html>

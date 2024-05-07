@@ -12,7 +12,7 @@ const POKEMON_COUNT = 1010;
 const INT_PATTERN = /\s*^\d+$\s*/;
 let timer;
 let count = 10;
-let loadedMonsters = [];
+let loadedMonsters;
 
 // UTILITY FUNCTIONS --------------
 
@@ -74,6 +74,11 @@ const sortMonsters = (data) => {
   } else return data;
 };
 
+const parseID = (IDtoParse) => {
+  stringID = String(IDtoParse);
+  return "0".repeat(4 - stringID.length) + stringID;
+};
+
 const toggleUnhide = (element) => {
   if (element.classList.contains("hide")) element.classList.toggle("hide");
 };
@@ -83,25 +88,6 @@ const toggleHide = (element) => {
 };
 
 // API CALLS --------------
-
-// get all monsters (we're fetching everything since it's a relatively small dataset)
-const loadMonsters = async () => {
-  const url = `https://pokeapi.co/api/v2/pokemon?limit=1010`;
-  const response = await fetch(url);
-  const data = await response.json();
-
-  // sort
-  loadedMonsters = [...data.results];
-  return sortMonsters(loadedMonsters);
-};
-
-// get type
-const loadType = async (id) => {
-  const url = `https://pokeapi.co/api/v2/pokemon/${id}/`;
-  const response = await fetch(url);
-  const data = await response.json();
-  return data.types;
-};
 
 // pagination
 const viewMonsters = () => {
@@ -124,7 +110,7 @@ const searchMonsters = () => {
   } else if (INT_PATTERN.test(searchInput)) {
     searchResult = loadedMonsters.filter((pokemon) => {
       numberID = pokemon.url.split("/")[6];
-      displayID = "0".repeat(4 - numberID.length) + numberID;
+      displayID = parseID(numberID);
       return displayID.startsWith(searchInput);
     });
   } else {
@@ -156,30 +142,6 @@ const searchMonsters = () => {
   }
 };
 
-// initial 10
-window.addEventListener("load", () => {
-  viewMonsters();
-});
-
-// add more 10, wait til the next batch has been loaded
-load.onclick = async () => {
-  count += 10;
-  if (count >= POKEMON_COUNT) {
-    count = POKEMON_COUNT;
-    toggleHide(load);
-  }
-  await viewMonsters();
-};
-
-// search
-search.addEventListener("input", () => {
-  // debounce
-  clearTimeout(timer);
-  timer = setTimeout(() => {
-    searchMonsters();
-  }, 300);
-});
-
 // display pokemons
 const showMonsters = async (pokemon) => {
   const numberID = pokemon.url.split("/")[6];
@@ -189,7 +151,7 @@ const showMonsters = async (pokemon) => {
   let displayID = numberID;
   if (numberID.length != 4) {
     urlID = "0".repeat(3 - numberID.length) + numberID;
-    displayID = "0".repeat(4 - numberID.length) + numberID;
+    displayID = parseID(numberID);
   }
 
   // get type
@@ -220,13 +182,39 @@ const showMonsters = async (pokemon) => {
       </div>
     `;
   card.addEventListener("click", async () => {
-    // const success = async (numberID) => {
-    //   console.log("haha");
-    // };
-    window.location.href = `./view.html?id=${numberID}`;
+    preLoadView(numberID).then((data) => {
+      if (data)
+        window.location.href = `./view.html?id=${parseInt(numberID, 10)}`;
+    });
   });
   monsterList.append(card);
 };
+
+// Listeners --------------
+
+// initial 10
+window.addEventListener("load", () => {
+  viewMonsters();
+});
+
+// add more 10, wait til the next batch has been loaded
+load.onclick = async () => {
+  count += 10;
+  if (count >= POKEMON_COUNT) {
+    count = POKEMON_COUNT;
+    toggleHide(load);
+  }
+  await viewMonsters();
+};
+
+// search
+search.addEventListener("input", () => {
+  // debounce
+  clearTimeout(timer);
+  timer = setTimeout(() => {
+    searchMonsters();
+  }, 300);
+});
 
 // const skeleton = () => {
 //   const skeletonBatch = document.createElement("div");
