@@ -1,5 +1,5 @@
 progress[value] {
-  --color: rgba(112, 112, 112, 0.389); /* the progress color */
+  --color: rgba(19, 73, 181, 0.389); /* the progress color */
   --background: transparent; /* the background color */
 
   -webkit-appearance: none;

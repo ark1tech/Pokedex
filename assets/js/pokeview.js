@@ -11,7 +11,7 @@ const pokeWeak = document.querySelector("[data-weaknesses]");
 const pokeDesc = document.querySelector("[data-desc]");
 const pokeHeight = document.querySelector("[data-height]");
 const pokeWeight = document.querySelector("[data-weight]");
-const pokeCategory = document.querySelector("[data-category]");
+const pokeCatch = document.querySelector("[data-catch]");
 const pokeAbility = document.querySelector("[data-ability]");
 
 const HPText = document.querySelector("[data-hp-text]");
@@ -21,7 +21,7 @@ const ATKProg = document.querySelector("[data-atk-prog]");
 const DEFText = document.querySelector("[data-def-text]");
 const DEFProg = document.querySelector("[data-def-prog]");
 const SPATKText = document.querySelector("[data-spatk-text]");
-const APATKProg = document.querySelector("[data-spatk-prog]");
+const SPATKProg = document.querySelector("[data-spatk-prog]");
 const SPDEFText = document.querySelector("[data-spdef-text]");
 const SPDEFProg = document.querySelector("[data-spdef-prog]");
 const SPEEDText = document.querySelector("[data-speed-text]");
@@ -31,7 +31,6 @@ const nextPokemon = document.querySelector("#loadNext");
 const prevPokemon = document.querySelector("#loadPrev");
 const disclaimer = document.querySelector("#disclaimer");
 
-const FLAVOR_PATTERN = /\f/g;
 const POKEMON_COUNT = 1010;
 
 let loadedPokemon = JSON.parse(sessionStorage.getItem("loadedPokemon"));
@@ -81,22 +80,49 @@ const showPokemon = () => {
   showID();
   showDesc();
   showMetaData();
-  // const pokeDesc = document.querySelector("[data-desc]");
-  // const pokeHeight = document.querySelector("[data-height]");
-  // const pokeWeight = document.querySelector("[data-weight]");
-  // const pokeCategory = document.querySelector("[data-category]");
-  // const pokeAbility = document.querySelector("[data-ability]");
+  showStats();
+};
+
+const showStats = () => {
+  console.log(loadedPokemon[1].stats);
+  loadedPokemon[1].stats.forEach((stat) => {
+    let statName = stat.stat.name;
+    if (statName === "hp") {
+      HPText.textContent = stat.base_stat;
+      HPProg.value = stat.base_stat;
+    } else if (statName === "attack") {
+      ATKText.textContent = stat.base_stat;
+      ATKProg.value = stat.base_stat;
+    } else if (statName === "defense") {
+      DEFText.textContent = stat.base_stat;
+      DEFProg.value = stat.base_stat;
+    } else if (statName === "special-attack") {
+      SPATKText.textContent = stat.base_stat;
+      SPATKProg.value = stat.base_stat;
+    } else if (statName === "special-defense") {
+      SPDEFText.textContent = stat.base_stat;
+      SPDEFProg.value = stat.base_stat;
+    } else if (statName === "speed") {
+      SPEEDText.textContent = stat.base_stat;
+      SPEEDProg.value = stat.base_stat;
+    }
+  });
 };
 
 const showMetaData = () => {
-  
-}
+  pokeHeight.textContent = `${loadedPokemon[1].height} units`;
+  pokeWeight.textContent = `${loadedPokemon[1].weight} units`;
+  pokeAbility.textContent = `${titleCase(
+    loadedPokemon[1].abilities[0].ability.name
+  )}`;
+  pokeCatch.textContent = `${loadedPokemon[2].capture_rate}%`;
+};
 
 const showDesc = () => {
   const filteredFlavor = loadedPokemon[2].flavor_text_entries.filter((a) => {
     return (a.language.name = "en");
   });
-  pokeDesc.textContent = filteredFlavor[1].flavor_text 
+  pokeDesc.textContent = filteredFlavor[1].flavor_text;
 };
 
 const showImg = () => {
