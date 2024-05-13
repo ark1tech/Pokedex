@@ -10,6 +10,8 @@ const yesfound = document.getElementById("thereis-found");
 
 const POKEMON_COUNT = 1010;
 const INT_PATTERN = /\s*^\d+$\s*/;
+const loadList = []
+
 let timer;
 let count = 10;
 let loadedMonsters;
@@ -39,7 +41,7 @@ const parseType = (typeList) => {
 
 // Sort
 const sortMonsters = (data) => {
-  if (sort.textContent === "Name" && sort2.textContent === "Descending") {
+  if (sort.textContent.trim() === "Name" && sort2.textContent.trim() === "Descending") {
     return data.sort((a, b) => {
       if (a.name < b.name) {
         return -1;
@@ -49,7 +51,7 @@ const sortMonsters = (data) => {
       }
       return 0;
     });
-  } else if (sort.textContent === "Name" && sort2.textContent === "Ascending") {
+  } else if (sort.textContent.trim() === "Name" && sort2.textContent.trim() === "Ascending") {
     return data.sort((a, b) => {
       if (a.name > b.name) {
         return -1;
@@ -59,7 +61,7 @@ const sortMonsters = (data) => {
       }
       return 0;
     });
-  } else if (sort2.textContent.toLowerCase() === "Ascending".toLowerCase()) {
+  } else if (sort2.textContent.trim() === "Ascending") {
     return data.sort((a, b) => {
       firstId = parseInt(a.url.split("/")[6]);
       secondId = parseInt(b.url.split("/")[6]);
@@ -83,6 +85,10 @@ const toggleUnhide = (element) => {
   if (element.classList.contains("hide")) element.classList.toggle("hide");
 };
 
+const toggleDisable = (element) => {
+  element.classList.toggle("disabled");
+};
+
 const toggleHide = (element) => {
   if (!element.classList.contains("hide")) element.classList.toggle("hide");
 };
@@ -90,17 +96,23 @@ const toggleHide = (element) => {
 // API CALLS --------------
 
 // pagination
-const viewMonsters = () => {
-  loadMonsters().then(async (data) => {
-    // ui checks
-    toggleUnhide(load);
-    toggleHide(yesfound);
-    toggleHide(nonfound);
-    for (let i = count - 10; i < count; i++) {
-      // console.log(data[i]);
-      await showMonsters(data[i]);
-    }
-  });
+const viewMonsters = async () => {
+  // ui checks
+  toggleUnhide(load);
+  toggleHide(yesfound);
+  toggleHide(nonfound);
+  
+  toggleDisable(load);
+  const loaded = await loadMonsters();
+  for (let i = count - 10; i < count; i++) {
+    const monster = await showMonsters(loaded[i]);
+    loadList.push(monster);
+  }
+  for (let i = 0; i < 10; i++) {
+    monsterList.append(loadList[i]);
+  }
+  toggleDisable(load);
+  loadList.length = 0;
 };
 
 const searchMonsters = () => {
@@ -187,7 +199,7 @@ const showMonsters = async (pokemon) => {
         window.location.href = `./view.html?id=${parseInt(numberID, 10)}`;
     });
   });
-  monsterList.append(card);
+  return card;
 };
 
 // Listeners --------------
@@ -198,14 +210,15 @@ window.addEventListener("load", () => {
 });
 
 // add more 10, wait til the next batch has been loaded
-load.onclick = async () => {
+load.addEventListener("click", async () => {
+  if (load.classList.contains("disabled")) load.removeEventListener("click");
   count += 10;
   if (count >= POKEMON_COUNT) {
     count = POKEMON_COUNT;
     toggleHide(load);
   }
   await viewMonsters();
-};
+});
 
 // search
 search.addEventListener("input", () => {
